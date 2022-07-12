@@ -62,16 +62,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Departmens_update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departmens_update.Designer.cs">
+      <DependentUpon>Departmens_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_form.Designer.cs">
+      <DependentUpon>Employee_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Position_update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Position_update.Designer.cs">
+      <DependentUpon>Position_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLInspector.cs" />
+    <EmbeddedResource Include="Departmens_update.resx">
+      <DependentUpon>Departmens_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee_form.resx">
+      <DependentUpon>Employee_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Position_update.resx">
+      <DependentUpon>Position_update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
