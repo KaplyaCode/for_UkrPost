@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
 using System.Data.SqlClient;
 
 namespace UkrPost
@@ -17,7 +10,7 @@ namespace UkrPost
 		public DataSet RefreshMainDataGrid(SqlConnection sqlConnection)
 		{
 			SqlDataAdapter dataAdapter = new SqlDataAdapter(
-				   "SELECT [employees].id AS 'ID', [employees].name AS 'Name', [surname] AS 'Surname', [patronymic] AS 'Patronymic', [department].name AS Department, [positions].name AS Position, [salary] AS 'Salary', [kpi].mark AS 'Premium' FROM employees, positions, department, kpi WHERE premium_id = kpi.id AND department.id = department_id AND positions.Id = position_id", sqlConnection);
+				   "SELECT [employees].id AS 'ID', [employees].name AS 'Name', [surname] AS 'Surname', [patronymic] AS 'Patronymic', [department].name AS Department, [positions].name AS Position, [salary] AS 'Salary', [kpi].mark AS 'Mark', [employees].salary*[kpi].impact AS 'Premium' FROM employees, positions, department, kpi WHERE premium_id = kpi.id AND department.id = department_id AND positions.Id = position_id", sqlConnection);
 
 			DataSet dataSet = new DataSet();
 

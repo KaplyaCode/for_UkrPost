@@ -47,6 +47,9 @@ namespace UkrPost
 				command.Parameters.AddWithValue("premium_id", comboBox1.Text);
 
 				command.ExecuteNonQuery();
+
+				MessageBox.Show("Содрудник успешно создан.");
+				this.Close();
 			}
 			catch (Exception)
 			{

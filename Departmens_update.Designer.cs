@@ -148,9 +148,10 @@ namespace UkrPost
 			this.ClientSize = new System.Drawing.Size(402, 523);
 			this.Controls.Add(this.splitContainer1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Departmens_update";
-			this.Text = "Departmens_update";
+			this.Text = "Отделы";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Departmens_update_FormClosing);
 			this.Load += new System.EventHandler(this.Departmens_update_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);

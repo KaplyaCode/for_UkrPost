@@ -31,12 +31,12 @@ namespace UkrPost
 		{
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -56,7 +56,7 @@ namespace UkrPost
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(947, 425);
+			this.dataGridView1.Size = new System.Drawing.Size(942, 425);
 			this.dataGridView1.TabIndex = 0;
 			// 
 			// splitContainer1
@@ -79,9 +79,28 @@ namespace UkrPost
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-			this.splitContainer1.Size = new System.Drawing.Size(947, 514);
+			this.splitContainer1.Size = new System.Drawing.Size(942, 514);
 			this.splitContainer1.SplitterDistance = 85;
 			this.splitContainer1.TabIndex = 3;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label3.Location = new System.Drawing.Point(685, 37);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(31, 33);
+			this.label3.TabIndex = 5;
+			this.label3.Text = "0";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(529, 45);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(159, 24);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Общие выплаты:";
 			// 
 			// button2
 			// 
@@ -119,35 +138,17 @@ namespace UkrPost
 			this.comboBox1.Size = new System.Drawing.Size(213, 32);
 			this.comboBox1.TabIndex = 0;
 			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(529, 45);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(159, 24);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "Общие выплаты:";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label3.Location = new System.Drawing.Point(685, 37);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(31, 33);
-			this.label3.TabIndex = 5;
-			this.label3.Text = "0";
-			// 
 			// Payments_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(947, 514);
+			this.ClientSize = new System.Drawing.Size(942, 514);
 			this.Controls.Add(this.splitContainer1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Payments_form";
-			this.Text = "Payments_form";
+			this.Text = "Выплаты";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Payments_form_FormClosing);
 			this.Load += new System.EventHandler(this.Payments_form_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

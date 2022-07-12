@@ -52,6 +52,7 @@ namespace UkrPost
 			this.label12 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.label13 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -254,11 +255,22 @@ namespace UkrPost
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.label13.Location = new System.Drawing.Point(193, 482);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(144, 24);
+			this.label13.TabIndex = 48;
+			this.label13.Text = "*только цифры";
+			// 
 			// Employee_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(931, 538);
+			this.Controls.Add(this.label13);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label12);
@@ -283,9 +295,10 @@ namespace UkrPost
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Employee_form";
-			this.Text = "Employee_form";
+			this.Text = "Карта сотрудника";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Employee_form__FormClosing);
 			this.Load += new System.EventHandler(this.Employee_form_Load);
 			this.ResumeLayout(false);
@@ -318,5 +331,6 @@ namespace UkrPost
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Label label13;
 	}
 }

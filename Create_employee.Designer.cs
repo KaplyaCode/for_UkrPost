@@ -51,6 +51,7 @@ namespace UkrPost
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -242,11 +243,22 @@ namespace UkrPost
 			this.label1.TabIndex = 25;
 			this.label1.Text = "Имя";
 			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+			this.label13.Location = new System.Drawing.Point(193, 484);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(144, 24);
+			this.label13.TabIndex = 47;
+			this.label13.Text = "*только цифры";
+			// 
 			// Create_employee
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(923, 517);
+			this.Controls.Add(this.label13);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.label11);
@@ -270,9 +282,10 @@ namespace UkrPost
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Create_employee";
-			this.Text = "Create_employee";
+			this.Text = "Добавить сотрудника";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Create_employee_FormClosing);
 			this.Load += new System.EventHandler(this.Create_employee_Load);
 			this.ResumeLayout(false);
@@ -304,5 +317,6 @@ namespace UkrPost
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label13;
 	}
 }
