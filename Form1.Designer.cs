@@ -29,18 +29,21 @@ namespace UkrPost
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.выплатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.добавлениеСотрудниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.редактированиеДолжностейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.редактированиеОтделовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.редактированиеДолжностейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.добавлениеСотрудниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.выплатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,26 +66,12 @@ namespace UkrPost
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// отчетToolStripMenuItem
+			// редактированиеОтделовToolStripMenuItem
 			// 
-			this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
-			this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-			this.отчетToolStripMenuItem.Text = "Отчет";
-			this.отчетToolStripMenuItem.Click += new System.EventHandler(this.отчетToolStripMenuItem_Click);
-			// 
-			// выплатыToolStripMenuItem
-			// 
-			this.выплатыToolStripMenuItem.Name = "выплатыToolStripMenuItem";
-			this.выплатыToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-			this.выплатыToolStripMenuItem.Text = "Выплаты";
-			this.выплатыToolStripMenuItem.Click += new System.EventHandler(this.выплатыToolStripMenuItem_Click);
-			// 
-			// добавлениеСотрудниковToolStripMenuItem
-			// 
-			this.добавлениеСотрудниковToolStripMenuItem.Name = "добавлениеСотрудниковToolStripMenuItem";
-			this.добавлениеСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(152, 20);
-			this.добавлениеСотрудниковToolStripMenuItem.Text = "Добавление сотрудника";
-			this.добавлениеСотрудниковToolStripMenuItem.Click += new System.EventHandler(this.добавлениеСотрудниковToolStripMenuItem_Click);
+			this.редактированиеОтделовToolStripMenuItem.Name = "редактированиеОтделовToolStripMenuItem";
+			this.редактированиеОтделовToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
+			this.редактированиеОтделовToolStripMenuItem.Text = "Редактирование отделов";
+			this.редактированиеОтделовToolStripMenuItem.Click += new System.EventHandler(this.редактированиеОтделовToolStripMenuItem_Click);
 			// 
 			// редактированиеДолжностейToolStripMenuItem
 			// 
@@ -91,12 +80,26 @@ namespace UkrPost
 			this.редактированиеДолжностейToolStripMenuItem.Text = "Редактирование должностей";
 			this.редактированиеДолжностейToolStripMenuItem.Click += new System.EventHandler(this.редактированиеДолжностейToolStripMenuItem_Click);
 			// 
-			// редактированиеОтделовToolStripMenuItem
+			// добавлениеСотрудниковToolStripMenuItem
 			// 
-			this.редактированиеОтделовToolStripMenuItem.Name = "редактированиеОтделовToolStripMenuItem";
-			this.редактированиеОтделовToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
-			this.редактированиеОтделовToolStripMenuItem.Text = "Редактирование отделов";
-			this.редактированиеОтделовToolStripMenuItem.Click += new System.EventHandler(this.редактированиеОтделовToolStripMenuItem_Click);
+			this.добавлениеСотрудниковToolStripMenuItem.Name = "добавлениеСотрудниковToolStripMenuItem";
+			this.добавлениеСотрудниковToolStripMenuItem.Size = new System.Drawing.Size(152, 20);
+			this.добавлениеСотрудниковToolStripMenuItem.Text = "Добавление сотрудника";
+			this.добавлениеСотрудниковToolStripMenuItem.Click += new System.EventHandler(this.добавлениеСотрудниковToolStripMenuItem_Click);
+			// 
+			// выплатыToolStripMenuItem
+			// 
+			this.выплатыToolStripMenuItem.Name = "выплатыToolStripMenuItem";
+			this.выплатыToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+			this.выплатыToolStripMenuItem.Text = "Выплаты";
+			this.выплатыToolStripMenuItem.Click += new System.EventHandler(this.выплатыToolStripMenuItem_Click);
+			// 
+			// отчетToolStripMenuItem
+			// 
+			this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
+			this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+			this.отчетToolStripMenuItem.Text = "Отчет";
+			this.отчетToolStripMenuItem.Click += new System.EventHandler(this.отчетToolStripMenuItem_Click);
 			// 
 			// dataGridView1
 			// 
@@ -172,6 +175,16 @@ namespace UkrPost
 			this.splitContainer1.SplitterDistance = 83;
 			this.splitContainer1.TabIndex = 1;
 			// 
+			// printPreviewDialog1
+			// 
+			this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+			this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+			this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+			this.printPreviewDialog1.Enabled = true;
+			this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+			this.printPreviewDialog1.Name = "printPreviewDialog1";
+			this.printPreviewDialog1.Visible = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -212,6 +225,8 @@ namespace UkrPost
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Drawing.Printing.PrintDocument printDocument1;
+		private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
 	}
 }
 

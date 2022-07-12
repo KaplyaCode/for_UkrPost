@@ -105,7 +105,35 @@ namespace UkrPost
 
 		private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			SqlDataAdapter dataAdapter = new SqlDataAdapter(
+				   "SELECT [employees].id AS 'ID', [employees].name AS 'Name', [surname] AS 'Surname', [patronymic] AS 'Patronymic', [department].name AS Department, [positions].name AS Position, [salary] AS 'Salary', [kpi].mark AS 'Premium' FROM employees, positions, department, kpi WHERE premium_id = kpi.id AND department.id = department_id AND positions.Id = position_id ORDER BY [department].name", sqlConnection);
 
+			DataSet dataSet = new DataSet();
+
+			dataAdapter.Fill(dataSet);
+
+			dataGridView1.DataSource = dataSet.Tables[0];
+
+			printDocument1.PrintPage += printDocument1_PrintPage;
+			printPreviewDialog1.Document = printDocument1;
+			printPreviewDialog1.ShowDialog();
+		}
+
+		private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+		{
+			//Width=827 Height=1169
+			Font font = new Font("Times New Roman", 14, FontStyle.Regular);
+			e.Graphics.DrawString("УкрПошта", font, Brushes.Black, new Point(550, 50));
+			e.Graphics.DrawString("Отчет о сотрудниках", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(330, 150));
+			e.Graphics.DrawString($"Содержимое информации о сотрудниках: ", font, Brushes.Black, new Point(100, 210));
+
+			Bitmap bmp = new Bitmap(dataGridView1.Size.Width + 10, dataGridView1.Size.Height + 10);
+			dataGridView1.DrawToBitmap(bmp, dataGridView1.Bounds);
+			e.Graphics.DrawImage(bmp, 30, 270, 780.0f, dataGridView1.Size.Height - 50);
+
+			e.Graphics.DrawString("ФИО сотрудника", new Font("Times New Roman", 14, FontStyle.Italic), Brushes.Black, new Point(620, 640));
+
+			e.Graphics.DrawString($"Дата: {DateTime.Now.ToShortDateString()}", font, Brushes.Black, new Point(100, 640));
 		}
 	}
 }
