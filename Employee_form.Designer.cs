@@ -286,6 +286,7 @@ namespace UkrPost
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Employee_form";
 			this.Text = "Employee_form";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Employee_form__FormClosing);
 			this.Load += new System.EventHandler(this.Employee_form_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

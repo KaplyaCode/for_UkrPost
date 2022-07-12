@@ -16,9 +16,12 @@ namespace UkrPost
 	{
 		private SqlConnection sqlConnection = null;
 		SQLInspector SQLInspector = new SQLInspector();
-		public Position_update()
+		private Form previous_form;
+
+		public Position_update(Form temp_form)
 		{
 			InitializeComponent();
+			previous_form = temp_form;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -60,6 +63,11 @@ namespace UkrPost
 		{
 			SQLInspector.UPDATE(sqlConnection, dataGridView1, textBox1, "positions");
 			button1_Click(sender, e);
+		}
+
+		private void Position_update_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			previous_form.Show();
 		}
 	}
 }

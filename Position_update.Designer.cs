@@ -151,6 +151,7 @@ namespace UkrPost
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Position_update";
 			this.Text = "Position_update";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Position_update_FormClosing);
 			this.Load += new System.EventHandler(this.Position_update_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();

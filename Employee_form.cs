@@ -17,10 +17,12 @@ namespace UkrPost
 	{
 		private SqlConnection sqlConnection = null;
 		private int chosen_employee;
+		private Form previous_form;
 
-		public Employee_form(int temp)
+		public Employee_form(int temp, Form temp_form)
 		{
 			InitializeComponent();
+			previous_form = temp_form;
 			chosen_employee = temp;
 		}
 
@@ -71,24 +73,37 @@ namespace UkrPost
 			comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 		}
 
+		private void Employee_form__FormClosing(Object sender, FormClosingEventArgs e)
+		{
+			previous_form.Show();
+		}
+
 		private void button1_Click(object sender, EventArgs e)
 		{
-			SqlCommand command = new SqlCommand(
+			try
+			{
+				SqlCommand command = new SqlCommand(
 				"UPDATE [employees] SET name = @NAME, surname = @SURNAME, patronymic = @PATRONYMIC, phone = @PHONE, adress = @ADRESS, department_id = (SELECT id FROM [department] WHERE name = @DEPARTMENT), position_id = (SELECT Id FROM [positions] WHERE name = @POSITION), salary = @SALARY, premium_id = (SELECT Id FROM [kpi] WHERE mark = @PREMIUM) WHERE ID = @selected_id",
 				sqlConnection);
 
-			command.Parameters.AddWithValue("NAME", textBox1.Text);
-			command.Parameters.AddWithValue("SURNAME", textBox2.Text);
-			command.Parameters.AddWithValue("PATRONYMIC", textBox3.Text);
-			command.Parameters.AddWithValue("PHONE", textBox4.Text);
-			command.Parameters.AddWithValue("ADRESS", textBox5.Text);
-			command.Parameters.AddWithValue("DEPARTMENT", comboBox3.Text);
-			command.Parameters.AddWithValue("POSITION", comboBox2.Text);
-			command.Parameters.AddWithValue("SALARY", float.Parse(textBox8.Text));
-			command.Parameters.AddWithValue("PREMIUM", comboBox1.Text);
-			command.Parameters.AddWithValue("selected_id", chosen_employee);
+				command.Parameters.AddWithValue("NAME", textBox1.Text);
+				command.Parameters.AddWithValue("SURNAME", textBox2.Text);
+				command.Parameters.AddWithValue("PATRONYMIC", textBox3.Text);
+				command.Parameters.AddWithValue("PHONE", textBox4.Text);
+				command.Parameters.AddWithValue("ADRESS", textBox5.Text);
+				command.Parameters.AddWithValue("DEPARTMENT", comboBox3.Text);
+				command.Parameters.AddWithValue("POSITION", comboBox2.Text);
+				command.Parameters.AddWithValue("SALARY", float.Parse(textBox8.Text));
+				command.Parameters.AddWithValue("PREMIUM", comboBox1.Text);
+				command.Parameters.AddWithValue("selected_id", chosen_employee);
 
-			command.ExecuteNonQuery();
+				command.ExecuteNonQuery();
+				this.Close();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Данные введены неверно.");
+			}
 		}
 
 		private void button2_Click(object sender, EventArgs e)

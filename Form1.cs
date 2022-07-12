@@ -22,7 +22,6 @@ namespace UkrPost
 			InitializeComponent();
 		}
 
-
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["EmployeesDB"].ConnectionString);
@@ -31,10 +30,14 @@ namespace UkrPost
 
 			DataSet dataSet = SQLInspector.RefreshMainDataGrid(sqlConnection);
 
-			comboBox1.DataSource = dataSet.Tables[0];
-			comboBox1.DisplayMember = "Department";
-			comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 			dataGridView1.DataSource = dataSet.Tables[0];
+
+			SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT name FROM [department]", sqlConnection);
+			DataSet departments = new DataSet();
+			dataAdapter.Fill(departments);
+			comboBox1.DataSource = departments.Tables[0];
+			comboBox1.DisplayMember = "name";
+			comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -59,24 +62,50 @@ namespace UkrPost
 
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			employee_form = new Employee_form(Int32.Parse(dataGridView1.SelectedCells[0].Value.ToString()));
+			employee_form = new Employee_form(Int32.Parse(dataGridView1.SelectedCells[0].Value.ToString()), this);
 			employee_form.Show();
+			this.Hide();
 		}
 
 		Departmens_update departmens_Update;
 
 		private void редактированиеОтделовToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			departmens_Update = new Departmens_update();
+			departmens_Update = new Departmens_update(this);
 			departmens_Update.Show();
+			this.Hide();
 		}
 
 		Position_update position_Update;
 
 		private void редактированиеДолжностейToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			position_Update = new Position_update();
+			position_Update = new Position_update(this);
 			position_Update.Show();
+			this.Hide();
+		}
+
+		Create_employee create_Employee;
+
+		private void добавлениеСотрудниковToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			create_Employee = new Create_employee(this);
+			create_Employee.Show();
+			this.Hide();
+		}
+
+		Payments_form payments_Form;
+
+		private void выплатыToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			payments_Form = new Payments_form(this);
+			payments_Form.Show();
+			this.Hide();
+		}
+
+		private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

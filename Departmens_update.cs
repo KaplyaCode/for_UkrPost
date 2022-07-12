@@ -16,10 +16,12 @@ namespace UkrPost
 	{
 		private SqlConnection sqlConnection = null;
 		SQLInspector SQLInspector = new SQLInspector();
+		Form previous_form;
 
-		public Departmens_update()
+		public Departmens_update(Form temp_form)
 		{
 			InitializeComponent();
+			previous_form = temp_form;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -57,10 +59,16 @@ namespace UkrPost
 			}
 		}
 
+		private void Departmens_update_FormClosing(Object sender, FormClosingEventArgs e)
+		{
+			previous_form.Show();
+		}
+
 		private void button4_Click(object sender, EventArgs e)
 		{
 			SQLInspector.UPDATE(sqlConnection, dataGridView1, textBox1, "department");
 			button1_Click(sender, e);
 		}
+
 	}
 }
